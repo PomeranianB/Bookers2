@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
     <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/ffdbf495c1.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav>
+        <div>
+          <%= link_to "Bookers", root_path %>
+        </div>
+        <ul>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to user_path(current_user.id) do %>
+                <i class="fa-solid fa-house">Home</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_path do %>
+                <i class="fa-solid fa-users">Users</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to books_path do %>
+                <i class="fa-regular fa-book-open">Books</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket">Log out</i>
+              <% end %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa-solid fa-house">Home</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to about_path do %>
+                <i class="fa-solid fa-link">About</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path do %>
+                <i class="fa-solid fa-user-plus">Sign up</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path do %>
+                <i class="fa-solid fa-right-to-bracket">Log in</i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
+
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
+    
   </body>
 </html>
