@@ -21,17 +21,14 @@
           <% end %>
         </td>
         <td>
-          <%= link_to book_path(book.user_id) do %>
+          <%= link_to book_path(book.id) do %>
             <%= book.title %>
           <% end %>
         </td>
         <td>
-        <%= link_to book_path(book.user_id) do %>
-            <%= book.body %>
-        <% end %>
+          <%= book.body %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
-
