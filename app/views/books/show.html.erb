@@ -1,1 +1,28 @@
-<h2>show</h2>
+<h2>Book detail</h2>
+
+<table>
+  <tr>
+    <td>
+      <%= link_to user_path(@user) do %>
+        <%= image_tag @user.get_profile_image %>
+        <%= @user.name %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to book_path(@book) do %>
+        <%= @book.title %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to book_path(@book) do %>
+        <%= @book.body %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to 'Edit', edit_book_path(@book) %>
+    </td>
+    <td>
+      <%= link_to 'Destroy', book_path(@book), method: :delete %>
+    </td>
+  </tr>
+</table>
