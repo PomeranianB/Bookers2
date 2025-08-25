@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about", as: "about"
   post "books" => "books#create"
   resources :post_images, only: [:new, :create, :index, :show, :destroy]
-  resources :users, only: [:show, :edit, :index, :create]
+  resources :users, only: [:show, :edit, :index, :update, :create]
   resources :books, only: [:new, :show, :edit, :index, :destroy, :create, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
