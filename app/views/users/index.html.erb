@@ -1,11 +1,17 @@
-<%= render 'info', user: current_user %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
 
-<%= render 'books/newbook', book: @book %>
+      <%= render 'info', user: current_user %>
+      <%= render 'books/newbook', book: @book %>
 
+    </div>
 
-<h2>Users</h2>
+    <div class="col-md-8 offset-md-1">
 
-  <table>
+    <h2>Users</h2>
+
+    <table class="table">
     <thead>
       <tr>
         <th>image</th>
@@ -27,5 +33,8 @@
         </td>
       </tr>
       <% end %>
-    </tbody>
-  </table>
+      </tbody>
+      </table>
+    </div>
+  </div>
+</div>
