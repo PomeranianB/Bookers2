@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update]
+  
   def new
     @book = Book.new
   end
@@ -10,16 +12,16 @@ class BooksController < ApplicationController
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book)
     else
-      @user = current_user
+      @user = User.find(current_user.id)
       @books = Book.all
-      render :index
+      render "index"
     end
   end
 
   def index
     @books = Book.all
     @book = Book.new
-    @user = current_user
+    @user = User.find(current_user.id)
   end
 
   def show
@@ -30,6 +32,11 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    if @book.user == current_user #URLを入力しても画面に飛ばせない
+        render "edit"
+    else
+        redirect_to books_path
+    end
   end
 
   def destroy
@@ -45,7 +52,7 @@ class BooksController < ApplicationController
       flash[:notice] = "You have updated book successfully."
       redirect_to book_path(@book.id)
     else
-      render :edit
+      render "edit"
     end
   end
 

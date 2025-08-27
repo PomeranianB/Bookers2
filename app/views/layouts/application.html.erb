@@ -6,7 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
-
     <script src="https://kit.fontawesome.com/ffdbf495c1.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -35,12 +34,12 @@
             </li>
             <li class="nav-item">
               <%= link_to books_path do %>
-                <i class="fa-regular fa-book-open">Books</i>
+                <i class="fas fa-book-open">Books</i>
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa-solid fa-right-from-bracket">Log out</i>
+                <i class="fas fa-sign-out-alt">Log out</i>
               <% end %>
             </li>
           <% else %>
@@ -48,10 +47,10 @@
               <%= link_to root_path do %>
                 <i class="fa-solid fa-house">Home</i>
               <% end %>
-            </li class="nav-item">
-            <li>
+            </li>
+            <li class="nav-item">
               <%= link_to about_path do %>
-                <i class="fa-solid fa-link">About</i>
+                <i class="fas fa-link">About</i> 
               <% end %>
             </li>
             <li class="nav-item">
